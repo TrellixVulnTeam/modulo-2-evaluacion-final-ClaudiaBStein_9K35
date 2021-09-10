@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6b2ec96ee1.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Evaluación final módulo 2 ClaudiaBStein</title>
 
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -10,10 +25,12 @@
 
   <body>
     <div class="page">
-      <h1>SteinFlix</h1>
       <header class="header js-header">
+        <h1 class="header__title js-header-title">SteinFlix</h1>
         <form action="GET" class="form js-form">
-          <input type="button" value="Browse" class="form__button js-browse-button" />
+          <button class="form__button js-form-button">
+            <i class="form__button--icon js-icon fas fa-align-justify"></i>
+          </button>
           <select
             name="language"
             id="language-selector"

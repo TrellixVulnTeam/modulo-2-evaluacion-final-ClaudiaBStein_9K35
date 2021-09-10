@@ -3,17 +3,20 @@
   margin: 0;
   padding: 0; }
 
-body {
-  padding: 2rem;
-  height: 100vh;
-  background-image: url("../images/bg-adalab.png");
-  background-color: #f3f4f5;
-  font-family: "Roboto", sans-serif; }
+.header {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  background: #140014;
+  background: linear-gradient(0deg, #140014 35%, #470047 100%); }
+  .header__title {
+    font-family: "IBM Plex Sans Hebrew", sans-serif; }
 
-.page__header {
+.form__menu--list {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem; }
+  flex-direction: row;
+  justify-content: space-between; }
 
 .page__footer {
   position: fixed;
