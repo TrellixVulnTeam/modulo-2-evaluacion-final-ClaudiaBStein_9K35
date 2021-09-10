@@ -29,7 +29,7 @@
         <h1 class="header__title js-title">
           <strong class="stein">Stein</strong><strong class="flix">Flix</strong>
         </h1>
-        <form action="GET" class="form js-form">
+        <form action="" class="form js-form">
           <button class="form__button js-form-button">
             <i class="form__button--icon js-icon fas fa-align-justify"></i>
           </button>
@@ -43,13 +43,13 @@
           </select>
           <input
             placeholder="Search"
-            type="Search"
+            type="text"
             name="Search"
             id="Search"
             class="form__search js-search-input"
           />
           <nav class="form__menu js-menu">
-            <ul class="form__menu--list js-menu-list" style="visibility: hidden">
+            <ul class="form__menu--list js-menu-list">
               <a href=""
                 ><li class="form__menu--list--item js-menu-item">TV Shows</li></a
               >
@@ -72,21 +72,14 @@
       </div>
 
       <main>
-        <div class="main__item js-main-item">
-          <img src="" alt="" />
-          <h5 class="main__item--title js-title">Title 1</h5>
-          <h6 class="main__item--year js-year">Año</h6>
-        </div>
-        <div class="main__item js-main-item">
-          <img src="" alt="" />
-          <h5 class="main__item--title js-title">Title 2</h5>
-          <h6 class="main__item--year js-year">Año</h6>
-        </div>
-        <div class="main__item js-main-item">
-          <img src="" alt="" />
-          <h5 class="main__item--title js-title">Title 3</h5>
-          <h6 class="main__item--year js-year">Año</h6>
-        </div>
+        <section><h2>Lista de series</h2></section>
+        <ul class="main__section--shows js-shows">
+          <li class="section__shows--show js-show"></li>
+        </ul>
+        <section>
+          <h2>Favoritos</h2>
+          <ul class="main__section--favorites js-favorites"></ul>
+        </section>
       </main>
 
       <footer class="footer js-footer">

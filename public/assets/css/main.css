@@ -7,6 +7,9 @@ main {
   width: 100%;
   height: 40%; }
 
+.hidden {
+  display: hidden; }
+
 .hero {
   width: 100%;
   height: 30%; }
