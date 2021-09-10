@@ -1,5 +1,7 @@
 <header class="header js-header">
-  <h1 class="header__title js-header-title">SteinFlix</h1>
+  <h1 class="header__title js-title">
+    <strong class="stein">Stein</strong><strong class="flix">Flix</strong>
+  </h1>
   <form action="GET" class="form js-form">
     <button class="form__button js-form-button">
       <i class="form__button--icon js-icon fas fa-align-justify"></i>
@@ -13,14 +15,14 @@
       <option value="en" class="form__option js-option">English</option>
     </select>
     <input
+      placeholder="Search"
       type="Search"
       name="Search"
       id="Search"
-      value="Search"
       class="form__search js-search-input"
     />
-    <menu class="form__menu js-menu">
-      <ul class="form__menu--list js-menu-list">
+    <nav class="form__menu js-menu">
+      <ul class="form__menu--list js-menu-list" style="visibility: hidden">
         <a href=""
           ><li class="form__menu--list--item js-menu-item">TV Shows</li></a
         >
@@ -35,7 +37,7 @@
         >
         <a href=""><li class="form__menu--list--item js-menu-item">All</li></a>
       </ul>
-    </menu>
+    </nav>
   </form>
 </header>
 <div class="hero js-hero">
