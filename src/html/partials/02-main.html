@@ -1,10 +1,27 @@
 <main>
-  <section><h2>Lista de series</h2></section>
-  <ul class="main__section--shows js-shows">
-    <li class="section__shows--show js-show"></li>
-  </ul>
-  <section>
-    <h2>Favoritos</h2>
-    <ul class="main__section--favorites js-favorites"></ul>
+  <form action="" class="form js-form">
+    <input
+      placeholder="Search"
+      type="text"
+      name="Search"
+      id="Search"
+      class="form__search js-search-input"
+    />
+    <button class="form__button js-button">Buscar</button>
+  </form>
+  <section class="main__section js-section">
+    <h2>Lista de series</h2>
+    <div class="container-shows js-container-shows">
+      
+      <ul class="main__section--shows js-shows">
+        <li class="js-show show">
+          <h5>Título de la serie</h5>
+          <img class="show-image js-image" src="./assets/images/Miss_Americana-215519799-large.jpg" alt="" />
+        </li>
+    </div>
+    <div class="container-favorites js-container-favorites"><h2>Favoritos</h2>
+        <ul class="main__section--favorites js-favorites"></ul>
+      </ul>
+    </div>
   </section>
 </main>

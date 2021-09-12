@@ -1,51 +1,66 @@
 'use strict';
 
-const menuButton = document.querySelector('.js-form-button');
-const collapsableMenu = document.querySelector('.js-menu-list');
-const iconButton = document.querySelector('.js-icon');
+const showsContainer = document.querySelector('.js-shows');
+const input = document.querySelector('js-search-input');
+let arrayShows = [];
 
 
-function handleClickButton(event){
-    ev.preventDefault();
-    
-let clickedButton = event.CurrentTarget;
-
-    if(clickedButton === iconButton[index]){
-        ev.preventDefault();
-      collapsableMenu[index].classList.toggle('hidden');
-    }
-    else {
-      collapsableMenu[index].classList.add('hidden');
-    
+function paintArrayShows() {
+  let html='';
+  //info es cada elemento del array
+  for (const info of arrayShows);{
+    console.log(info);
+    html += `<li class="js-show show">`;
+    html += `<h5>Título de la serie</h5>`
+    html += `</li>`;
+  }
+  showsContainer.innerHTML = html;
 }
 
-menuButton.addEventListener('click', handleClickButton);
-'use strict';
-
-const input = document.querySelector('.js-search-input');
-const menu = document.querySelector('.js-menu-list');
-const show = document.querySelector('.js-show');
-
-function addApi() {
-  let inputValue = input.value;
-  let api = `//api.tvmaze.com/search/shows?q=${inputValue}`;
-  return api;
-}
-
-addApi();
-
-
-function getShow(ev) {
-  console.log('hola');
-  ev.preventDefault();
-  let api = addApi();
-  console.log(api);
-  fetch(api)
-    .then(response => response.json())
-    .then( data => {
-      console.log(data);
+fetch(
+  `//api.tvmaze.com/search/shows?q=${shows}`
+)
+.then((response) => response.json())
+.then((data) => {
+    arrayShows = data;
+    paintArrayShows();
+    
+}); 
 
 
 
-document.querySelector('.js-form').addEventListener("submit", getShow);
+
+
+
+
+// const input = document.querySelector('.js-search-input');
+// const menu = document.querySelector('.js-menu-list');
+// const show = document.querySelector('.js-show');
+
+// function addApi() {
+//   let inputValue = input.value;
+//   let api = `//api.tvmaze.com/search/shows?q=${inputValue}`;
+//   return api;
+// }
+
+// addApi(); 
+
+
+// function getShow(event) {
+//   console.log('hola');
+//   ev.preventDefault();
+//   let api = addApi();
+// console.log(api);
+//   fetch(api);
+//   then(response => response.json());
+//   then( data => {return {
+//     id: data.show.id,
+//     title: data.show.name,
+//     image: data.show.image
+//   };
+//   });
+// }
+
+
+// document.querySelector('.js-form').addEventListener("submit", getShow);
 //# sourceMappingURL=main.js.map

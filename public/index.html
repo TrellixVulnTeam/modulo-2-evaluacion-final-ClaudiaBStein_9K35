@@ -14,10 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/6b2ec96ee1.js"
-      crossorigin="anonymous"
-    ></script>
     <title>Evaluación final módulo 2 ClaudiaBStein</title>
 
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -29,18 +25,10 @@
         <h1 class="header__title js-title">
           <strong class="stein">Stein</strong><strong class="flix">Flix</strong>
         </h1>
+      </header>
+
+      <main>
         <form action="" class="form js-form">
-          <button class="form__button js-form-button">
-            <i class="form__button--icon js-icon fas fa-align-justify"></i>
-          </button>
-          <select
-            name="language"
-            id="language-selector"
-            class="form__selector js-selector"
-          >
-            <option value="es" class="form__option js-option">Español</option>
-            <option value="en" class="form__option js-option">English</option>
-          </select>
           <input
             placeholder="Search"
             type="text"
@@ -48,49 +36,24 @@
             id="Search"
             class="form__search js-search-input"
           />
-          <nav class="form__menu js-menu">
-            <ul class="form__menu--list js-menu-list">
-              <a href=""
-                ><li class="form__menu--list--item js-menu-item">TV Shows</li></a
-              >
-              <a href=""
-                ><li class="form__menu--list--item js-menu-item">Films</li></a
-              >
-              <a href=""
-                ><li class="form__menu--list--item js-menu-item">Documentaries</li></a
-              >
-              <a href=""
-                ><li class="form__menu--list--item js-menu-item">Dramas</li></a
-              >
-              <a href=""><li class="form__menu--list--item js-menu-item">All</li></a>
-            </ul>
-          </nav>
+          <button class="form__button js-button">Buscar</button>
         </form>
-      </header>
-      <div class="hero js-hero">
-        <video src=""></video>
-      </div>
-
-      <main>
-        <section><h2>Lista de series</h2></section>
-        <ul class="main__section--shows js-shows">
-          <li class="section__shows--show js-show"></li>
-        </ul>
-        <section>
-          <h2>Favoritos</h2>
-          <ul class="main__section--favorites js-favorites"></ul>
+        <section class="main__section js-section">
+          <h2>Lista de series</h2>
+          <div class="container-shows js-container-shows">
+            
+            <ul class="main__section--shows js-shows">
+              <li class="js-show show">
+                <h5>Título de la serie</h5>
+                <img class="show-image js-image" src="./assets/images/Miss_Americana-215519799-large.jpg" alt="" />
+              </li>
+          </div>
+          <div class="container-favorites js-container-favorites"><h2>Favoritos</h2>
+              <ul class="main__section--favorites js-favorites"></ul>
+            </ul>
+          </div>
         </section>
       </main>
-
-      <footer class="footer js-footer">
-        <ul class="footer__list js-footer-list">
-          <li class="footer__list--item js-footer-item"><a href=""> Faq</a></li>
-          <li class="footer__list--item js-footer-item"><a href="">Privacy</a></li>
-          <li class="footer__list--item js-footer-item"><a href="">Contact</a></li>
-          <small> &copy; All rights reserved.</small>
-        </ul>
-        <img src="" alt="" />
-      </footer>
 
     </div>
     <script src="./assets/js/main.js"></script>
