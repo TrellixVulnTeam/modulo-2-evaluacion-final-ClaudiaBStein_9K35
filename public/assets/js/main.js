@@ -4,17 +4,27 @@ const showsContainer = document.querySelector('.js-shows');
 const input = document.querySelector('.js-search-input');
 const button = document.querySelector('.js-button');
 let arrayShows = [];
+let arrayShowsId = [];
+let arrayShowsName = [];
+let arrayShowsImg = [];
 
 
-function paintArrayShows() {
+
+
+function paintArrayShows(ev) {
   let html='';
   //info es cada elemento del array de 
   for (const info of arrayShows){
+    
+    arrayShowsId = info.show.id;
+    arrayShowsImg = info.show.image.medium;
+    arrayShowsName = info.show.name;
     console.log(info);
-    html += `<li class="js-show show">`;
-    html += `<h5>Título de la serie</h5>`;
+    html += `<li class="js-show show" id="${arrayShowsId}">`;
+    html += `<h5>${arrayShowsName}</h5>`;
+    html += `<img class="show-image js-image" src="${arrayShowsImg}" alt="${arrayShowsName}"/>`;
     html += `</li>`;
-    html += `<img class="show-image js-image" src="${show.image}" alt="" />`;
+    
   }
   showsContainer.innerHTML = html;
 }
@@ -30,15 +40,16 @@ function handleSearch (ev){
     .then((response) => response.json())
     .then((data) => {
       arrayShows = data;
+      console.log(arrayShows);
     
-      // paintArrayShows();
+      paintArrayShows();
     
     });
 
 }
 
 button.addEventListener ('click' , handleSearch);
-console.log(arrayShows);
+
 
 
 // const input = document.querySelector('.js-search-input');

@@ -24,19 +24,25 @@ main {
     justify-content: center;
     align-items: center; }
 
+.js-show {
+  height: 100px;
+  width: 100px;
+  color: aliceblue; }
+
 .container-shows {
   margin-top: 20px;
   width: 100%;
   height: 350px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr; }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
 
 .main__section--shows {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  height: 100%; }
 
 .show-image {
   height: 100px;
