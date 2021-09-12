@@ -11,7 +11,7 @@ let arrayShowsImg = [];
 
 
 
-function paintArrayShows(ev) {
+function paintArrayShows() {
   let html='';
   //info es cada elemento del array de 
   for (const info of arrayShows){
