@@ -10,19 +10,27 @@ let arrayShowsId = [];
 let arrayShowsName = [];
 let arrayShowsImg = [];
 let favorites = [];
-let shows = [];
 
 function handleShow(ev) {
   console.log(ev.currentTarget.id);
 }
 function handleFavorites(ev) {
   const favSelected = parseInt(ev.currentTarget.id);
-  const showClicked = shows.find((info) => {
+  const showClicked = arrayShows.find((info) => {
     return info.show.id === favSelected;
   });
   console.log(showClicked);
-  favorites.push(showClicked);
-  favSelected.classList.toggle("favorite-identifier");
+  const checkSelection = favorites.findIndex((fav) => {
+    return fav.show.id === favSelected;
+  });
+  if (checkSelection === -1) {
+    favorites.push(showClicked);
+  } else {
+    favorites.splice(checkSelection, 1);
+  }
+  console.log(favorites);
+
+  ev.currentTarget.classList.toggle("favorite-identifier");
   paintFavorites();
 }
 
@@ -33,12 +41,23 @@ function listenFavorites() {
   }
 }
 
+// function foundFavorite(show) {
+//   const favoriteFound = favorites.find((fav) => {
+//     return fav.id === show.id;
+//   });
+//   if (favoriteFound === undefined) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+
 function paintFavorites() {
   let html = "";
   for (const favorite of favorites) {
     if (favorite.show.image === null) {
       html += `<li class="favorite js-favorite" id = "${favorite.show.id}">`;
-      html += `<h2 class="favorite-name js-favorite-name">${favorite.show.name}</h2>`;
+      html += `<h4 class="favorite-name js-favorite-name">${favorite.show.name}</h4>`;
       html += `<img src="${defaultImg}" alt="">`;
       html += `</li>`;
     } else {
@@ -81,6 +100,9 @@ function handleSearch(ev) {
 
       paintArrayShows();
     });
+  function getLocalStorage() {
+    const getStorage = localStorage.getItem("favorite");
+  }
 }
 
 button.addEventListener("click", handleSearch);
