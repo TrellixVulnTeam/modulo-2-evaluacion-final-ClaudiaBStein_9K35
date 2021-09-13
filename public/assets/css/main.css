@@ -99,6 +99,9 @@ h5 {
   flex-wrap: wrap;
   align-self: center; }
 
+.favorite-identifier {
+  border: #a02b68 1px solid; }
+
 .form__button {
   width: 220px;
   height: 25px;
