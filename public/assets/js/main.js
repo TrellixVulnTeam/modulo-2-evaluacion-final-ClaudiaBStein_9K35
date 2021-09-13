@@ -92,54 +92,34 @@ function handleSearch(ev) {
   ev.preventDefault();
   const inputValue = input.value;
 
-  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
-    .then((response) => response.json())
-    .then((data) => {
-      arrayShows = data;
-      console.log(arrayShows);
+  function setInLocalStorage() {
+    const stringShows = JSON.stringify(palettes);
+    localStorage.setItem("shows", stringShows);
+  }
+  function getFromApi() {
+    fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
+      .then((response) => response.json())
+      .then((data) => {
+        arrayShows = data;
+        console.log(arrayShows);
 
-      paintArrayShows();
-    });
-  function getLocalStorage() {
-    const getStorage = localStorage.getItem("favorite");
+        paintArrayShows();
+
+        setInLocalStorage();
+      });
   }
 }
 
+function getLocalStorage() {
+  const localStorageShows = localStorage.getItem("shows");
+  if (localStorageShows === null) {
+    getFromApi();
+  } else {
+    const arrayShows = JSON.parse(localStorageShows);
+    palettes = arrayShows;
+    paintPalettes();
+  }
+}
 button.addEventListener("click", handleSearch);
-
-// function listenFavoritesResult(){
-//   const selectedShow = parseInt(ev.currentTarget.id);
-//   const clickedShow = arrayShows.find((data) => {
-//     return data.show.id === selectedShow;
-// }
-
-// const input = document.querySelector('.js-search-input');
-// const menu = document.querySelector('.js-menu-list');
-// const show = document.querySelector('.js-show');
-
-// function addApi() {
-//   let inputValue = input.value;
-//   let api = `//api.tvmaze.com/search/shows?q=${inputValue}`;
-//   return api;
-// }
-
-// addApi();
-
-// function getShow(event) {
-//   console.log('hola');
-//   ev.preventDefault();
-//   let api = addApi();
-// console.log(api);
-//   fetch(api);
-//   then(response => response.json());
-//   then( data => {return {
-//     id: data.show.id,
-//     title: data.show.name,
-//     image: data.show.image
-//   };
-//   });
-// }
-
-// document.querySelector('.js-form').addEventListener("submit", getShow)
 
 //# sourceMappingURL=main.js.map
