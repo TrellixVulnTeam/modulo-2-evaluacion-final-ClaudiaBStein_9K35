@@ -11,15 +11,11 @@ let arrayShowsName = [];
 let arrayShowsImg = [];
 let favorites = [];
 
-function handleShow(ev) {
-  console.log(ev.currentTarget.id);
-}
 function handleFavorites(ev) {
   const favSelected = parseInt(ev.currentTarget.id);
   const showClicked = arrayShows.find((info) => {
     return info.show.id === favSelected;
   });
-  console.log(showClicked);
   const checkSelection = favorites.findIndex((fav) => {
     return fav.show.id === favSelected;
   });
@@ -28,7 +24,6 @@ function handleFavorites(ev) {
   } else {
     favorites.splice(checkSelection, 1);
   }
-  console.log(favorites);
 
   ev.currentTarget.classList.toggle("favorite-identifier");
   paintFavorites();
@@ -101,7 +96,6 @@ function handleSearch(ev) {
       .then((response) => response.json())
       .then((data) => {
         arrayShows = data;
-        console.log(arrayShows);
 
         paintArrayShows();
 
@@ -111,12 +105,12 @@ function handleSearch(ev) {
 }
 
 function getLocalStorage() {
-  const localStorageShows = localStorage.getItem("shows");
+  const localStorageShows = localStorage.getItem("favorites");
   if (localStorageShows === null) {
     getFromApi();
   } else {
     const arrayShows = JSON.parse(localStorageShows);
-    palettes = arrayShows;
+    favorite = arrayShows;
     paintPalettes();
   }
 }
