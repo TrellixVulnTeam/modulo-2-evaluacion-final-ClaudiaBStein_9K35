@@ -10,15 +10,20 @@ let arrayShowsId = [];
 let arrayShowsName = [];
 let arrayShowsImg = [];
 let favorites = [];
+let shows = [];
 
 function handleShow(ev) {
   console.log(ev.currentTarget.id);
 }
 function handleFavorites(ev) {
-  console.log(ev.currentTarget.id);
-  console.log(ev.target);
-  const favSelected = ev.currentTarget;
+  const favSelected = parseInt(ev.currentTarget.id);
+  const showClicked = shows.find((info) => {
+    return info.show.id === favSelected;
+  });
+  console.log(showClicked);
+  favorites.push(showClicked);
   favSelected.classList.toggle("favorite-identifier");
+  paintFavorites();
 }
 
 function listenFavorites() {
