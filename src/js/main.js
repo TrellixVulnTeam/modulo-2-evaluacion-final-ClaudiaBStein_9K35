@@ -20,6 +20,9 @@ function handleFavorites(ev) {
   const showClicked = shows.find((info) => {
     return info.show.id === favSelected;
   });
+  const checkSelection = favorites.findIndex((fav) => {
+    return fav.id === favSelected;
+  });
   console.log(showClicked);
   favorites.push(showClicked);
   favSelected.classList.toggle("favorite-identifier");
