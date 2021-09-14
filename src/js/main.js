@@ -3,7 +3,9 @@
 const showsContainer = document.querySelector(".js-shows");
 const favoritesContainer = document.querySelector(".js-favorites");
 const input = document.querySelector(".js-search-input");
+
 const button = document.querySelector(".js-button");
+const logButton = document.querySelector(".js-log-button");
 let defaultImg = "./assets/images/wc-placeholder.jpg";
 let arrayShows = [];
 let arrayShowsId = [];
@@ -27,6 +29,7 @@ function handleFavorites(ev) {
 
   ev.currentTarget.classList.toggle("favorite-identifier");
   paintFavorites();
+  setInLocalStorage();
 }
 
 function listenFavorites() {
@@ -67,6 +70,13 @@ function paintFavorites() {
   //setLocalStorage();
 }
 
+function handleLogButton() {
+  for (const favorite of favorites) {
+    console.log(favorite.show.name);
+  }
+}
+logButton.addEventListener("click", handleLogButton);
+
 function paintArrayShows() {
   let html = "";
   for (const info of arrayShows) {
@@ -86,32 +96,33 @@ function paintArrayShows() {
 function handleSearch(ev) {
   ev.preventDefault();
   const inputValue = input.value;
+  getFromApi(inputValue);
+}
 
-  function setInLocalStorage() {
-    const stringShows = JSON.stringify(palettes);
-    localStorage.setItem("shows", stringShows);
-  }
-  function getFromApi() {
-    fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
-      .then((response) => response.json())
-      .then((data) => {
-        arrayShows = data;
+function setInLocalStorage() {
+  const stringShows = JSON.stringify(favorites);
+  localStorage.setItem("favorites", stringShows);
+}
 
-        paintArrayShows();
+function getFromApi(inputValue) {
+  fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
+    .then((response) => response.json())
+    .then((data) => {
+      arrayShows = data;
 
-        setInLocalStorage();
-      });
-  }
+      paintArrayShows();
+
+      setInLocalStorage();
+    });
 }
 
 function getLocalStorage() {
   const localStorageShows = localStorage.getItem("favorites");
-  if (localStorageShows === null) {
-    getFromApi();
-  } else {
+  if (localStorageShows !== null) {
     const arrayShows = JSON.parse(localStorageShows);
-    favorite = arrayShows;
-    paintPalettes();
+    favorites = arrayShows;
+    paintFavorites();
   }
 }
 button.addEventListener("click", handleSearch);
+getLocalStorage();
